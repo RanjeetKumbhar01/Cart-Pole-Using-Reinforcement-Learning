@@ -21,13 +21,13 @@ model.learn(total_timesteps=30000) # total_timesteps can be modiyed accordingly
 #run model
 for episode in range(1, 11):
   score = 0
-  obs = environment.reset()
+  observation = environment.reset()
   done = False
 
   while not done:
     environment.render()
-    action, _ = model.predict(obs)
-    obs, reward, done, info = environment.step(action)
+    action, _ = model.predict(observation)
+    observation, reward, done, info = environment.step(action)
     score += reward
 
   print('Episode: ',episode,'score: ',score)
